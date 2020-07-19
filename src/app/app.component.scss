@@ -54,10 +54,13 @@ app-root {
 
 .home-screen {
     display: flex;
+    align-items: center;
+    align-content: center;
     justify-content: center;
+    height: 100%;
+    width: 100%;
 
     .home-content {
-        margin-top: calc(50% - 350px);
 
         img {
             height: 9em;
@@ -109,7 +112,6 @@ app-root {
     .home-screen {
 
         .home-content {
-            margin-top: calc(50% - 110px);
        
             img {
                 height: 6em;
