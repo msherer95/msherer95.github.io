@@ -1,0 +1,137 @@
+$toolbar-height: 70px;
+
+app-root {
+    display: flex;
+    flex-flow: column;
+    height: 100%;
+}
+
+.toolbar {
+    height: $toolbar-height;
+    flex: 0 0 auto;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    .toolbar-btn {
+        margin-right: 45px;
+        font-size: 22px;
+        position: relative;
+        cursor: pointer;
+
+        &:first-child .btn-highlight {
+            background-color: #dad1ff;
+        }
+        
+        &:last-child .btn-highlight {
+            background-color: #bde4ff;
+        }
+
+        &:hover {
+            .btn-highlight {
+                right: 0.7em;
+                left: 0.7em;
+                opacity: 0.5;
+            }
+        }
+
+        .btn-highlight {
+            height: 7px;
+            position: absolute;
+            background-color: #bfd4ff;
+            bottom: 0.12em;
+            z-index: -1;
+            left: -0.2em;
+            right: -0.2em;
+            transition: right 200ms, left 200ms, opacity 200ms;
+        }
+    }
+}
+
+.app-content {
+    flex: 1;
+}
+
+.home-screen {
+    display: flex;
+    justify-content: center;
+
+    .home-content {
+        margin-top: calc(50% - 350px);
+
+        img {
+            height: 9em;
+            margin-top: 25px;
+            margin-left: calc(50% - 4.5em);
+        }
+
+        .home-title {
+            margin-bottom: 0;
+            margin-top: 0;
+            text-align: center;
+            font-size: 70px;
+        }
+        
+        .im-mark-text {
+            position: relative
+        }
+
+        .subtitle {
+            color: #949494;
+            position: relative;
+            font-size: 25px;
+        }
+
+        .title-highlight-bar {
+            height: 20px;
+            background-color: #bfd4ff;
+            bottom: 0.15em;
+            position: absolute;
+            z-index: -1;
+            right: -0.1em;
+            width: 2.8em;
+        }
+
+        .subtitle-highlight-bar {
+            height: 11px;
+            background-color: #e8e3fd;
+            display: block;
+            position: absolute;
+            z-index: -1;
+            bottom: 0.02em;
+            left: 0.8em;
+            width: 7.7em;
+        }
+    }
+}
+
+@media screen and (max-width: 850px) {
+    .home-screen {
+
+        .home-content {
+            margin-top: calc(50% - 110px);
+       
+            img {
+                height: 6em;
+                margin-left: calc(50% - 3em);
+                margin-top: 20px;
+            }
+
+            .home-title {
+                font-size: 50px;
+            }
+        
+            .subtitle {
+                font-size: 12px;
+            }
+        }
+    }
+    
+    .toolbar {
+        justify-content: space-evenly;
+
+        .toolbar-btn {
+            margin: 0;
+        }
+    }
+}
