@@ -1,0 +1,271 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title></title>
+        
+        <meta name="robots" content="noindex" />
+        
+        
+
+
+        <!-- Custom HTML head -->
+        
+
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        
+        <link rel="stylesheet" href="fonts/fonts.css">
+        
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="title-page.html"><strong aria-hidden="true">1.</strong> StreamDB</a></li><li class="chapter-item expanded "><a href="introduction.html"><strong aria-hidden="true">2.</strong> Introduction</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
+
+                    <h1 class="menu-title"></h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1><a class="header" href="#streamdb" id="streamdb">StreamDB</a></h1>
+<p><em>By Mark Sherer and (hopefully) others</em></p>
+<p>StreamDB is a DBMS that aims to provide regular DBMS capability as well as additional streaming functionality. Specifically, I hope to solve the problem of providing constantly-refreshing data to consumers. Although constantly refreshing is usually a fine solution for many applications, it can consume too much CPU, increase latency, and be overall less efficient for high throughput systems. I want to provide a better solution for these systems.</p>
+<h1><a class="header" href="#introduction" id="introduction">Introduction</a></h1>
+<h2><a class="header" href="#who-am-i" id="who-am-i">Who Am I</a></h2>
+<p>I'm not any of the things typically associated with this type of project. I'm not a database expert, nor a systems engineer. I'm a self-taught, full-stack-ish web developer. I add the <em>ish</em> because I don't spend much time on the typical backend part of the stack nowadays; I'm mostly working with TypeScript and SQL Server all day. And software engineers always seem to get super angry when <code>fullstack</code> appears, so I'm a bit scared to use it here.</p>
+<p>Anyway, my point is that I don't typically build databases. I started software engineering because I hated using ubiquitously awful webapps and wanted to design elegant, intuitive ones. I originally thought the concept of <code>Big Data</code> was kind of boring. That is, until a significant portion of my job became writing and optimizing SQL queries, and eventually managing a SQL Server instance. </p>
+<p>To be clear, I never played with the true definition of <code>Big Data</code>. I never did the whole distributed thing, or worked with pentabytes of data at Facebook. I just had lots of SQL data that needed to be queried at <a href="https://www.hobo-web.co.uk/your-website-design-should-load-in-4-seconds/">webapp-level speed</a>. So I became interested in making data fast, and got over my <code>Big Data</code> boredom.</p>
+<h2><a class="header" href="#project-overview" id="project-overview">Project Overview</a></h2>
+<p>Like any good blog post, I'll give an overview of what I'm doing and hope you're still interested after the next couple of paragraphs. </p>
+<p>I wanted to work on something new and interesting. Something that'll help me grow as a developer and will produce an interesting product. I'm not trying to make anything production worthy, just a from-scratch system that's different from what I make at work.</p>
+<p>A database management system (DBMS) seemed like a good project for this. It would let me work with systems-level concepts and languages, multithreading, complicated algorithms, all that good stuff. And it lets me explore my newly found interest in making data fast.</p>
+<p>At first I figured I'd just make a very basic version of SQL Server, just to get a general understanding of how it worked. But I always find clones kind of boring, so instead I wanted to make it a bit more interesting by making a streaming database called <code>streamdb</code>. </p>
+<p>At it's core, it's just a typical DBMS, enhanced with a persistent connection feature that autorefreshes your data. Usually, you create a short-lived connection to your database that closes when your query returns some data. As a result, if you're relying on constantly-refreshing data, such as financial transactions, medical data, or IoT devices, you have to refresh (that is, re-query) the data on a timer. This presents several issues. </p>
+<ol>
+<li>You have to consume way too much CPU on each refresh cycle by rerunning the entire query. </li>
+<li>You might have to run your query even if your database hasn't changed. </li>
+<li>Multiple queries can't utilize their shared components effectively.</li>
+</ol>
+<p>For the last part, think about a scenario where three separate queries all have the following subquery:</p>
+<pre><code class="language-SQL">    SELECT * FROM dbo.Users
+    WHERE AddedDate &gt; '10/1/2019'
+</code></pre>
+<p>We typically have to re-run that subquery for all those queries, rather than caching and reusing its results. Doesn't that seem inefficient? </p>
+<p>So I figured instead of making a typical DBMS, I'd create an altered version that's optimized for those scenarios. We could create a persistent connection, and send updated query results whenever available. This way, we eliminate timers, and only run query updates when needed. This not only saves us CPU usage, but allows data refreshes to be much faster, since they're not waiting for a timer cycle to complete. </p>
+<p>Let's try to conceptually optimize a little further. Instead of rerunning the query on the entire dataset each time, what if we could only rerun it with the newly added data. That is, whenever we get new data potentially pertaining to our query, we only rerun the query on that data. We maintain all query result changes, and simply combine past changes with the new change we just computed to determine our entire new result set. Admittedly, this seems a little abstract right now, but I'll describe it more in future posts. For now, think of combining these past changes as a similar process to rebuilding a typical SQL database from the transaction log. If that doesn't help, wait for the future posts.</p>
+<p>Going back to that subquery result sharing, if we have three queries on persistent connections all relying on the same subquery, sharing subquery results seems relatively intuitive. These queries are refreshed with the same newly-added data, so we can safetly cache subquery results for all to-be-updated queries. </p>
+<p>Let's take this a touch further. Imagine we have a system with lots of persistent queries, many of which share subqueries. Since we can only run so many queries at once, we should run the queries that'll create the most shared-subquery cache results first, to avoid duplicate work as much as possible. I want to explore creating a subquery dependency graph, sorting it (topological sort for you fancy engineers), and using that sort as a guide for the query scheduler. There'll be plenty of other constraints, hence I say <em>as a guide</em>. </p>
+<h2><a class="header" href="#language-of-choice" id="language-of-choice">Language of Choice</a></h2>
+<p>I thought about this for a while. Most people seem to use C++ (RocksDb, MySQL, SQL Server) or C (Redis) for DB-related projects. After some research, I decided to throw Rust into the mix as well. Everyone was saying it was a great, modern alternative to C++. </p>
+<p>I've never used any of these languages, so take my reviews and decisions with a grain of salt. I instantly knocked out C. It's extreme low-levelness didn't seem necessary for this type of project, but it's lack of safety and organizational features seemed to be a pain. I was then choosing between C++ and Rust. Both are roughly comparable in speed and low-levelness. C++ is huge, with tons of features and a big community. Sure, it lacks memory safety, but lots of projects have used it successfully regardless. Rust is modern, very safe, but not nearly as big or full-featured. Honestly, these general overviews weren't enough for me, so I read a book about each language. </p>
+<p>I started with  <em>A Tour of C++</em> by Bjarne Stroustrup. Coming from TypeScript and C#, C++ seemed pretty unpleasant. Despite the convenience and familiarity of object-orientedness, C++ seemed overwhemlingly enormous. After reading the book, I could write basic C++ code, but understanding best practices and making design decisions seemed like extremely time-consuming learning processes. Coupled with the fact that there'd be lots and lots of learning about algorithms, operating systems, db systems, I didn't want to devote quite this much energy towards learning the language used in this project.</p>
+<p>So I eagerly read <a href="https://doc.rust-lang.org/book/">The Rust Book</a>. At first, I was annoyed by the lack of object-orientated features, but quickly learned to appreciate Rust's view on composition over inheritence. It doesn't feel quite as reusable, but it feels very clear. Inheritence definitely has the potential to obscure implementation, whereas composition feels consistently transparent. Rust felt cleaner, smaller, and easier to digest than C++, while maintaining a sufficiently large feature set for this project. So I chose it. I felt like I could learn it faster, write cleaner, more best practice-focused code, and feel safer about my heavily multithreaded code. </p>
+<h2><a class="header" href="#whom-this-is-for" id="whom-this-is-for">Whom This is For</a></h2>
+<p>I want to say everyone. I really do. But I will expect some things from my readers. Specifically, I will expect basic algorithmic familiarity and a general understanding of SQL systems. You don't have to know how they work, you just have to have a rough idea of how to use one. If you've written SQL queries, you'll probably be set. I'll try to explain everything from the ground up, but a lot of concepts here are complicated, and I can't truly start groundup for everything and keep my posts sufficiently concise.</p>
+<h2><a class="header" href="#post-organization" id="post-organization">Post Organization</a></h2>
+<p>Aside from this post, I want to have a very specific post structure to make it easier to read, skim, or skip around each post. There will be a couple core sections:</p>
+<ol>
+<li><strong>Background:</strong> Concepts, other people ideas, papers, books. All the stuff that led me to my own thoughts.</li>
+<li><strong>How Others Did It:</strong> Implementation discussions from other systems.</li>
+<li><strong>Thoughts:</strong> A discussion on my goals and implementation thoughts.</li>
+<li><strong>Implentations:</strong> My own code and implementation details. This will directly parallel the thoughts section.</li>
+</ol>
+<p>I want to say that the most important sections are probably <strong>Background</strong> and <strong>Thoughts</strong>. All of my reasoning is based on other people's research, so my conclusions won't be entirely clear without <strong>Background</strong>. The core of the posts will be <strong>Thoughts</strong>, so please read those. <strong>Implementation</strong> details are only important if you want a more technical discussion, and to see my code snippets. You can understand most concepts without code snippets, so these sections aren't strictly necessary. </p>
+<p>I'll also include posts that are entirely focused on the theory needed for major parts of the project. </p>
+<h2><a class="header" href="#final-thoughts" id="final-thoughts">Final Thoughts</a></h2>
+<p>I'm only interested in the data-relevant parts of a DBMS. That is, the storage engine (storing and retrieving data chunks from disk), and the query engine (scheduling queries, subqueries, execution dataflows). I'm not very interested in language parsers, so I'm going to use some SQL parser library. I'm also not very interested in byte serialization, so I'm going to use a library for that as well. </p>
+<p>But I want to write all the other core sections completely from scratch. Yes, I can likely grab a more efficient and robust implementation of some algorithm from a library, but the point of this project is education, not productionalization. </p>
+<p>I think a lot of this stuff is pretty confusing and complicated. I'm going to try to explain everything as plainly and clearly as possible at first, the way I wish it had been explained to me. </p>
+<h2><a class="header" href="#next-post" id="next-post">Next Post</a></h2>
+<p>I'm going to start the project by writing the storage engine, which will effectively be a minimal RocksDb clone. Many concepts and implementation ideas will be taken directly from there. In the next post, I'll introduce the LSM tree, which will serve as my core data structure </p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+
+        
+
+        
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+        
+        <script type="text/javascript">
+        window.addEventListener('load', function() {
+            window.setTimeout(window.print, 100);
+        });
+        </script>
+        
+        
+
+    </body>
+</html>

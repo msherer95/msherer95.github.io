@@ -1,0 +1,26 @@
+<div class="resume-content">
+    <h1>
+        <span class="resume-title-text">
+            Resume
+            <span class="resume-highlight"></span>
+        </span>
+    </h1>
+    <div class="resume-text-content" [@fadeLeftContainer]>
+        <p class="resume-description" [@fadeLeft]>
+            Here's my professional history. It's a bit sparse in 2020, but I've only been out of college for a couple of years. I studied neuroscience with the goal of attending medical school, but realized it wasn't really for me around mid junior year. I was actually pretty excited about the prospect of learning medicine, but couldn't imagine so much more school at that moment. I wanted to create things, to get my hands dirty. So I started learning to code after graduation, with hopes of a job where I could build and tinker all day.  Miraculously, I started working at Composable within about five months, where I found just that. The rest you can read below.
+        </p>
+        <div class="item-block" *ngFor="let item of items" [@fadeLeft]>
+            <div class="item-block-top">
+                <p class="item-title-container">
+                    <span class="item-title">
+                        {{item.title}}
+                        <span class="item-title-highlight"></span>
+                    </span>
+                    <em class="item-location">&nbsp;{{item.location}}</em>
+                </p>
+                <p class="item-date">{{item.startDate}} - {{item.endDate}}</p>
+            </div>
+            <p class="item-description">{{item.description}}</p>
+        </div>
+    </div>
+</div>

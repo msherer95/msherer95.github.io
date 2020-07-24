@@ -1,13 +1,19 @@
-<div class="home-content">
+<div class="home-content" [@homeScreenAnimation]>
     <h1 class="home-title">
         <span class="hi-text">Hi</span>
-        <span class="im-mark-text">, I'm Mark
-            <div class="title-highlight-bar"></div>
+        <span class="im-mark-text" [@imMark]>, I'm 
+            <span class="mark-text">
+                Mark
+                <span class="title-highlight-bar"></span>
+            </span>
         </span>
     </h1>
-    <p class="subtitle">
-        Software Developer. UX Enthusiast. Aspiring systems engineer.
-        <span class="subtitle-highlight-bar"></span>
+    <p class="subtitle" [@subtitle]>
+        <span class="software-text">
+            Software Developer. 
+            <span class="subtitle-highlight-bar"></span>
+        </span>
+        UX Enthusiast. Aspiring systems engineer.
     </p>
-    <img src="/assets/personal-site-logo.svg">
+    <img src="/assets/personal-site-logo.svg" [@logo]>
 </div>

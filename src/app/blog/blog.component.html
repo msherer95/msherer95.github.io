@@ -1,0 +1,20 @@
+<ng-container *ngIf="postUrl == null">
+    <h1>
+        <span class="blog-title-text">
+            Blog
+            <span class="blog-highlight"></span>
+        </span>
+    </h1>
+    <div class="post-block" [@grow] *ngFor="let post of posts" (click)="postUrl = post.postUrl">
+        <div class="post-img">
+            <img [src]="post.imgUrl | safeUrl"/>
+        </div>
+        <p class="post-title">
+            <span>
+                <span class="post-title-content">{{post.title}}</span>
+            </span>
+        </p>
+        <p class="post-description">{{post.description}}</p>
+    </div>
+</ng-container>
+<iframe *ngIf="postUrl != null" [src]="postUrl | safeUrl"></iframe>

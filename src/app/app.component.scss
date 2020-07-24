@@ -6,12 +6,37 @@ app-root {
     height: 100%;
 }
 
+.app-content {
+    display: flex;
+    flex-flow: column;
+    flex: 1;
+    overflow: auto;
+    overflow-x: hidden;
+}
+
 .toolbar {
     height: $toolbar-height;
     flex: 0 0 auto;
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     align-items: center;
+
+    img {
+        height: 3em;
+        margin-left: 20px;
+        cursor: pointer;
+        transition: transform 250ms;
+
+        &:hover {
+            transform: rotate(45deg);
+        }
+    }
+
+    .options {
+        display: flex;
+        flex: 1;
+        justify-content: flex-end;
+    }
 
     .toolbar-btn {
         margin-right: 45px;
@@ -48,10 +73,6 @@ app-root {
     }
 }
 
-.app-content {
-    flex: 1;
-}
-
 .home-screen {
     display: flex;
     align-items: center;
@@ -75,42 +96,323 @@ app-root {
             font-size: 70px;
         }
         
-        .im-mark-text {
+        .mark-text {
             position: relative
         }
 
         .subtitle {
             color: #949494;
-            position: relative;
             font-size: 25px;
+            
+            .software-text {
+                position: relative;
+            }
         }
 
         .title-highlight-bar {
-            height: 20px;
+            height: 0.35em;
             background-color: #bfd4ff;
             bottom: 0.15em;
             position: absolute;
             z-index: -1;
             right: -0.1em;
-            width: 2.8em;
+            left: -0.1em;
         }
 
         .subtitle-highlight-bar {
-            height: 11px;
+            height: 0.4em;
             background-color: #e8e3fd;
             display: block;
             position: absolute;
             z-index: -1;
             bottom: 0.02em;
-            left: 0.8em;
-            width: 7.7em;
+            left: -0.2em;
+            right: 0.2em;
+        }
+    }
+}
+
+.resume-screen {
+    display: flex;
+    height: 100%;
+    justify-content: center;
+
+    .resume-highlight {
+        height: 15px;
+        background-color: #bfd4ff;
+        position: absolute;
+        bottom: 0.14em;
+        z-index: -1;
+        left: -0.15em;
+        right: -0.15em;
+    }
+
+    .resume-content {
+        max-width: 700px;
+        display: flex;
+        flex-flow: column;
+
+        .resume-text-content {
+            margin-bottom: 50px;
+        }
+
+        .resume-description {
+            margin-bottom: 70px;
+            position: relative;
+        }
+
+        .item-block {
+            .item-block-top {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+
+            .item-title {
+                font-size: 15px;
+                font-weight: 600;
+                position: relative;
+            }
+            
+            .item-location {
+                font-size: 12px;
+                font-weight: 500;
+                color: #b0b0b0;
+                margin-left: 4px;
+            }
+
+            .item-title-highlight {
+                position: absolute;
+                height: 0.4em;
+                background-color: #bde4ff;
+                left: 0;
+                bottom: 0.05em;
+                z-index: -1;
+                left: -0.3em;
+                right: 0;
+            }
+            
+            .item-date {
+                font-size: 13px;
+                color: #b0b0b0;
+            }
+
+            .item-description {
+                font-size: 14px;
+                margin-top: 0;
+                line-height: 1.7em;
+            }
+        }
+
+        h1 {
+            font-size: 50px;
+
+            .resume-title-text {
+                position: relative;
+            }
+        }
+
+        p {
+            font-size: 18px;
+            line-height: 1.5em;
+        }
+    }
+}
+
+.about-screen {
+    display: flex;
+    height: 100%;
+    justify-content: center;
+
+    .about-content {
+        max-width: 700px;
+        display: flex;
+        flex-flow: column;
+
+        h1 {
+            font-size: 50px;
+
+            .about-title-content {
+                position: relative;
+            }
+
+            .about-highlight {
+                height: 0.3em;
+                background-color: #dad1ff;
+                position: absolute;
+                bottom: 0.14em;
+                z-index: -1;
+                left: -0.15em;
+                right: -0.15em;
+            }
+        }
+
+        p {
+            font-size: 18px;
+            line-height: 1.5em;
+        }
+
+        .about-block {
+            display: block;
+            margin-bottom: 10px;
+        }
+    }
+}
+
+.blog-screen {
+    height: calc(100% - 5px);
+    width: 100%;
+
+    h1 {
+        font-size: 50px;
+        text-align: center;
+        
+        .blog-title-text {
+            position: relative;
+            
+            .blog-highlight {
+                height: 0.3em;
+                background-color: #bde4ff;
+                position: absolute;
+                bottom: 0.17em;
+                z-index: -1;
+                left: -0.2em;
+                right: -0.2em;
+            }
+        }
+    }
+
+    
+    iframe {
+        height: 100%;
+        width: 100%;
+        border: none;
+    }
+
+    .post-block {
+        box-shadow: 0 3px 3px -2px rgba(0,0,0,.2), 0 3px 4px 0 rgba(0,0,0,.14), 0 1px 8px 0 rgba(0,0,0,.12);
+        width: 380px;
+        margin: auto;
+        height: 400px;
+        margin-top: 40px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: box-shadow 200ms;
+        padding: 30px;
+        background-color: white;
+        max-width: calc(100% - 100px) !important;
+
+        &:first-child {
+            margin-top: 50px;
+        }
+
+        &:last-child {
+            margin-bottom: 50px;
+        }
+
+        &:hover {
+            box-shadow: 0 2px 1px -1px rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.14), 0 1px 3px 0 rgba(0,0,0,.12);
+        }
+
+        .post-img {
+            height: 50%;
+            display: flex;
+            justify-content: center;
+
+            img {
+                height: 100%;
+            }
+        }
+
+        .post-title {
+            font-size: 37px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            text-align: center;
+
+            & > span {
+                position: relative;
+            }
+
+            .post-title-content {
+                position: relative;
+                z-index: 2;
+            }
+
+            .post-title-highlight {
+                position: absolute;
+                height: 0.4em;
+                background-color: #bde4ff;
+                left: -0.2em;
+                bottom: 0.07em;
+                z-index: 1;
+                right: -0.2em;
+            }
+        }
+
+        .post-description {
+            font-size: 17px;
+            color: #707070;
         }
     }
 }
 
 @media screen and (max-width: 850px) {
-    .home-screen {
+    h1 {
+        font-size: 40px !important;
+        text-align: center;
+    }
 
+    .blog-screen {
+        .post-block {
+            .post-title {
+                font-size: 29px;
+            }
+
+            .post-description {
+                font-size: 15px;
+            }
+        }
+    }
+
+    .resume-screen {
+        .resume-content {
+            p {
+                font-size: 12px;
+                padding: 0 20px;
+            }
+
+            .item-block {
+                .item-description {
+                    font-size: 12px;
+                }
+
+                .item-date {
+                    font-size: 10px;
+                    white-space: nowrap;
+                }
+                
+                .item-location {
+                    white-space: nowrap;
+                    font-size: 10px;
+                    display: block;
+                    margin-top: 3px;
+                    margin-left: 0;
+                }
+            }
+        }
+    }
+    
+    .about-screen {
+        .about-content {
+            p {
+                font-size: 12px;
+                padding: 0 20px;
+            }
+        }
+    }
+
+    .home-screen {
         .home-content {
        
             img {
@@ -131,9 +433,21 @@ app-root {
     
     .toolbar {
         justify-content: space-evenly;
+        
+        &.home-page {
+            .options {
+                justify-content: space-evenly;
+
+                .toolbar-btn {
+                    margin: 0;
+                }
+            }
+            
+        }
 
         .toolbar-btn {
-            margin: 0;
+            margin-right: 25px;
+            font-size: 19px;
         }
     }
 }

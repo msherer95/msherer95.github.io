@@ -1,12 +1,15 @@
-<div class="about-btn toolbar-btn">
-    <span>About</span>
-    <div class="btn-highlight"></div>
-</div>
-<div class="resume-btn toolbar-btn">
-    <span>Resume</span>
-    <div class="btn-highlight"></div>
-</div>
-<div class="blog-btn toolbar-btn">
-    <span>Blog</span>
-    <div class="btn-highlight"></div>
+<img src="/assets/personal-site-logo.svg" [@logoBtn] *ngIf="!isHome()" (click)="navigate('/home')" />
+<div class="options">
+    <div class="about-btn toolbar-btn" [@toolbarBtn] (click)="navigate('/about')">
+        <span>About</span>
+        <div class="btn-highlight"></div>
+    </div>
+    <div class="resume-btn toolbar-btn" [@toolbarBtn] (click)="navigate('/resume')">
+        <span>Resume</span>
+        <div class="btn-highlight"></div>
+    </div>
+    <div class="blog-btn toolbar-btn" [@toolbarBtn] (click)="navigate('/blog')">
+        <span>Blog</span>
+        <div class="btn-highlight"></div>
+    </div>
 </div>
